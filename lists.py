@@ -38,8 +38,14 @@ def long_words(words):
         >>> long_words(["all", "are", "tiny"])
         []
     """
+    long_word_list = []
+    
+    # Loop through list and find words longer than 4 characters
+    for word in words:
+        if len(word) > 4:
+            long_word_list.append(word)
 
-    return ['the wrong thing']
+    return long_word_list
 
 
 def n_long_words(words, n):
@@ -55,8 +61,14 @@ def n_long_words(words, n):
         >>> n_long_words(["I", "like", "apples", "bananas", "you"], 5)
         ['apples', 'bananas']
     """
+    long_word_list = []
 
-    return ['the wrong thing']
+    # Loop through words looking for the one longer than n
+    for word in words:
+        if len(word) > n:
+            long_word_list.append(word)
+
+    return long_word_list
 
 
 def smallest_int(numbers):
@@ -75,8 +87,18 @@ def smallest_int(numbers):
         >>> smallest_int([]) is None
         True
     """
+    smallest_num = None
 
-    return 100
+    if len(numbers) == 0:
+        return smallest_num
+    else:
+        smallest_num = numbers[0]
+        for number in numbers:
+            if number < smallest_num:
+                smallest_num = number
+
+
+    return smallest_num
 
 
 def largest_int(numbers):
@@ -95,8 +117,18 @@ def largest_int(numbers):
         >>> largest_int([]) is None
         True
     """
+    
+    largest_num = None
 
-    return 0
+    if len(numbers) == 0:
+        return None
+    else:
+        largest_num = numbers[0]
+        for number in numbers:
+            if number > largest_num:
+                largest_num = number
+
+    return largest_num
 
 
 def halvesies(numbers):
@@ -114,7 +146,13 @@ def halvesies(numbers):
         [0.5, 2.5]
     """
 
-    return []
+    halves = []
+
+    for number in numbers:
+        half = number / 2
+        halves.append(half)
+
+    return halves
 
 
 def word_lengths(words):
@@ -126,7 +164,13 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    word_len = []
+
+    # Loop through words checking word length
+    for word in words:
+        word_len.append(len(word))
+
+    return word_len
 
 
 def sum_numbers(numbers):
@@ -145,7 +189,14 @@ def sum_numbers(numbers):
         0
     """
 
-    return None
+    num_sum = 0
+
+    # Add the numbers in the input list
+    for number in numbers:
+        num_sum += number
+
+
+    return num_sum
 
 
 def mult_numbers(numbers):
@@ -168,7 +219,12 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    num_mult = 1
+
+    for number in numbers:
+        num_mult *= number
+
+    return num_mult
 
 
 def join_strings(words):
@@ -187,7 +243,12 @@ def join_strings(words):
         ''
     """
 
-    return "Not the right thing"
+    concat = ""
+
+    for word in words:
+        concat += word
+
+    return concat
 
 
 def average(numbers):
@@ -209,7 +270,16 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
-    return 0
+    sum_num = 0
+
+    if len(numbers) == 0:
+        return None
+    else:
+        for number in numbers:
+            sum_num += number
+    mean = sum_num / len(numbers)
+
+    return mean
 
 
 def join_strings_with_comma(words):
@@ -228,8 +298,21 @@ def join_strings_with_comma(words):
         >>> join_strings_with_comma(["Pretzel"])
         'Pretzel'
     """
+    words_comma = ""
 
-    return ""
+    # If length of words list is 1 or list, return the list
+    if len(words) <= 1:
+        return words
+    else:
+        # Loop through words adding a word and commma to the string
+        for i in range(len(words)):
+            # If reached the last word, don't add a comma
+            if i != len(words) - 1:
+                words_comma = words_comma + words[i] + ", "
+            else:
+                words_comma += words[i]
+
+    return words_comma
 
 
 def reverse_list(items):
@@ -252,6 +335,9 @@ def reverse_list(items):
         >>> orig
         ['apple', 'berry', 'cherry']
     """
+    reversed_list = []
+
+    for i in range(len(items)):
 
     return []
 
