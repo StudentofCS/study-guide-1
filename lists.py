@@ -302,7 +302,7 @@ def join_strings_with_comma(words):
 
     # If length of words list is 1 or list, return the list
     if len(words) <= 1:
-        return words
+        return words[0]
     else:
         # Loop through words adding a word and commma to the string
         for i in range(len(words)):
@@ -379,7 +379,7 @@ def reverse_list_in_place(items):
         items[i] = inverse
         items[-(i + 1)] = placeholder
 
-    return items
+    return None
 
 
 def duplicates(items):
@@ -404,8 +404,14 @@ def duplicates(items):
         >>> orig
         ['apple', 'apple', 'berry']
     """
+    dup = []
 
-    return []
+    for item in items:
+        if (items.count(item) > 1 and 
+            not item in dup):
+            dup.append(item)
+
+    return dup
 
 
 def find_letter_indices(words, letter):
@@ -432,8 +438,15 @@ def find_letter_indices(words, letter):
     ("o" does not appear in "jumps", so the result for that input is
     `None`.)
     """
+    index_list = []
 
-    return []
+    for word in words:
+        if word.find(letter) > -1:
+            index_list.append(word.find(letter))
+        else:
+            index_list.append(None)
+
+    return index_list
 
 
 #####################################################################
