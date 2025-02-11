@@ -124,11 +124,8 @@ def num_spaces(words):
 #    and a tip percentage. It should return the total amount paid
 #    (price + price * tip). **However:** passing in the tip percentage should
 #    be optional; if not given, it should default to 15%.
-def total_meal_price(price, tip="15%"):
-    tip = int(tip.strip('%')) / 100
-
-    return (price + (price * tip))
-
+def total_meal_price(price, tip=".15"):
+    return (price + (price * float(tip)))
 
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an
@@ -174,6 +171,14 @@ def sign_and_parity(num):
 #
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
+
+# Part 2.1
+def full_title(name, title="Engineer"):
+    return title + " " + name
+
+def write_letter(name, title, sender):
+    print(f"Dear {full_title(name, title)}, I think you are amazing! "
+          f"Sincerely, {sender}")
 
 
 ###############################################################################
